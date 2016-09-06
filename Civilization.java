@@ -16,7 +16,7 @@ public class Civilization {
       setUpGame();
       while(playing) {
         startOfTurn();
-
+        preformAction();
         playing = false;
       }
     }
@@ -59,15 +59,60 @@ public class Civilization {
    	String currentStatus2 = null;
    	String currentStatus3 = null;
    	String currentStatus4 = null;
-    if (cities.length>=2) currentStatus1 = "\n\nIt is turn "+turn+" and you, the "+empire+ " empire, have: \n"+cities.length+" cities\n"+gold+ " thousand gold\n"+resources+" tons of resources\n";
-    if (cities.length==1) currentStatus1 = "\n\nIt is turn "+turn+" and you, the "+empire+ " empire, have: \n"+cities.length+" city\n"+gold+ " thousand gold\n"+resources+" tons of resources\n";
-   	if (happiness>0) currentStatus2 = happiness+" thousand happy citizens\n";
-   	if (happiness<0) currentStatus2 = happiness+" thousand angry citizens\n";
-   	if (happiness==0) currentStatus2 = "Your people are indifferent to your rule\n";
-   	if (troops==0) currentStatus3 = "no army\n";
-   	if (troops>0) currentStatus3 = troops+" thousand soldiers\n";
-   	if (tech==0) currentStatus4 = "and no technology past the stone age\n";
-		if (tech>0) currentStatus4 = "and "+tech+" technologies past the stone age\n";
+    if (cities.length>=2){ currentStatus1 = "\n\nIt is turn "+turn+" and you, the "+empire+ " empire, have: \n"+cities.length+" cities\n"+gold+ " thousand gold\n"+resources+" tons of resources\n";}
+    if (cities.length==1){ currentStatus1 = "\n\nIt is turn "+turn+" and you, the "+empire+ " empire, have: \n"+cities.length+" city\n"+gold+ " thousand gold\n"+resources+" tons of resources\n";}
+   	if (happiness>0){ currentStatus2 = happiness+" thousand happy citizens\n";}
+   	if (happiness<0){ currentStatus2 = happiness+" thousand angry citizens\n";}
+   	if (happiness==0){ currentStatus2 = "Your people are indifferent to your rule\n";}
+   	if (troops==0){currentStatus3 = "no army\n";}
+   	if (troops>0){currentStatus3 = troops+" thousand soldiers\n";}
+   	if (tech==0){currentStatus4 = "and no technology past the stone age\n";}
+		if (tech>0){currentStatus4 = "and "+tech+" technologies past the stone age\n";}
     return currentStatus1+currentStatus2+currentStatus3+currentStatus4;
 	}
+  public static void preformAction(){
+    boolean correct = false;
+    if (cities.length==1){ System.out.println("On your turn you can:\nSettle a City [1]\nBuild Your Army [3]\nResearch Technology [4]\nAtttack An Enemy City [5] \nor End Your Turn [6]");}
+    else {System.out.println("On your turn you can:\nSettle a City [1]\nDemolish a City [2]\nBuild Your Army [3]\nResearch Technology [4]\nAtttack An Enemy City [5] \nor End Your Turn [6]");}
+    while (!correct){   
+      System.out.println("Please enter a number 1-6");
+      int choice = scan.nextInt();
+      if (choice == 1){
+        settleCity();
+        correct = true;}
+      if (choice == 2){
+        demolishCity();
+        correct = true;}
+      if (choice ==3){
+        buildArmy();
+        correct = true;}
+      if (choice ==4){
+        researchTech();
+        correct = true;}
+      if (choice ==5){
+        attackCity();
+        correct = true;}
+      if (choice ==6){
+        endTurn();
+        correct = true;}
+    }
+  }
+  public static void settleCity(){
+
+  }
+  public static void demolishCity(){
+
+  }
+  public static void buildArmy(){
+
+  }
+  public static void researchTech(){
+
+  }
+  public static void attackCity(){
+
+  }
+  public static void endTurn(){
+
+  }
 }
