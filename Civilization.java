@@ -147,7 +147,7 @@ public class Civilization {
     	else {
     		System.out.println("You have " + numOfCities + " cities:");
     	}
-    	for (int i = 0; i <= (numOfCities - 1);i ++) {
+    	for (int i = 0; i <= (numOfCities - 1); i ++) {
       		System.out.println(cities[i]);
     	}
     	System.out.println("\nYou can only have at most 5 cities\nTo settle a new city it costs 15.5 gold\nYou currently have " + gold + " gold");
@@ -168,12 +168,12 @@ public class Civilization {
           			System.out.println("You already have 5 cities\n-----------------------------------");
         		}
         		else {
-          			gold = gold-15.5;
+          			gold = gold - 15.5;
           			numOfCities ++;
           			System.out.println("What would you like to name your new city?");
           			String newCityName = scan.nextLine();
           			System.out.println("---");
-          			cities[numOfCities-1] = newCityName;
+          			cities[numOfCities - 1] = newCityName;
           			System.out.println("Your new city " + newCityName + " is being built\n-----------------------------------");
         		}
         	continuing = false;
@@ -188,9 +188,9 @@ public class Civilization {
     		System.out.println("\nYou have 1 city:");
     	}
     	else {
-    		System.out.println("\nYou have "+numOfCities+" cities:");
+    		System.out.println("\nYou have " + numOfCitie + " cities:");
     	}
-    	for (int i = 0; i <= (numOfCities-1); i ++) {
+    	for (int i = 0; i <= (numOfCities - 1); i ++) {
     		int j = i + 1;
       		System.out.println(cities[i] + " [" + j + "]");
     	}
@@ -220,7 +220,7 @@ public class Civilization {
             			}
             			else if (razeCityNum <= numOfCities) {
               				String destoyedCity = cities[razeCityNum - 1];
-              				for (int i = razeCityNum; i<=(numOfCities - 1); i ++) {
+              				for (int i = razeCityNum; i <= numOfCities - 1); i ++) {
                 				cities[i - 1] = cities[i];
               				}
             				cities[numOfCities] = "";
@@ -339,9 +339,9 @@ public class Civilization {
     	String endStatus3 = null;
     	String endStatus4 = null;
     	int negHappiness = (-1) * happiness;
-    	System.out.println("It took  "+turn+ " turns for the "+empire+" empire to win the game.\n You had:");
+    	System.out.println("It took  " + turn + " turns for the " + empire + " empire to win the game.\n You had:");
     	if (happiness>0) {
-    		endStatus2 = happiness+" thousand happy citizens\n";
+    		endStatus2 = happiness +" thousand happy citizens\n";
     	}
     	if (happiness < 0) {
     		endStatus2 = negHappiness + " thousand angry citizens\n";
