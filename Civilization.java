@@ -14,12 +14,11 @@ public class Civilization {
   public static boolean playing = true;
     
     public static void main(String[] args) {
- 
       setUpGame();
       while(playing) {
-        startOfTurn();
         preformAction();
         if (attacks==10||tech==20) {endGame();}
+        endOfTurn();
         playing = false;
       }
     }
@@ -48,14 +47,13 @@ public class Civilization {
     String firstCityName = scan.nextLine();
     cities[0] = firstCityName;
   }
-  public static void startOfTurn(){
+  public static void endOfTurn(){
     turn++;
     resources++;
     if (happiness>20) resources = resources + (5*numOfCities);
     gold = gold+3;
     if (resources%2 ==0) happiness++;
     else happiness = happiness -3;
-    System.out.println(status());
   }
   public static String status(){
     String currentStatus1 = null;
@@ -74,6 +72,7 @@ public class Civilization {
     return currentStatus1+currentStatus2+currentStatus3+currentStatus4;
   }
   public static void preformAction(){
+    System.out.println(status());
     boolean correct = false;
     System.out.println("On your turn you can:\nSettle a City [1]\nDemolish a City [2]\nBuild Your Army [3]\nResearch Technology [4]\nAtttack An Enemy City [5] \nor End Your Turn [6]\n");
     while (!correct){   
@@ -140,7 +139,7 @@ public class Civilization {
     boolean cont = true;
     boolean continuing = true;
     if (numOfCities==1){System.out.println("\nYou have 1 city:");}
-    else {System.out.println("You have "+numOfCities+" cities:");}
+    else {System.out.println("You have "+numOfCities+1+" cities:");}
     for (int i =0; i<=(numOfCities-1);i++) {
       System.out.println(cities[i]+" ["+i+"]");
     }
@@ -203,6 +202,7 @@ public class Civilization {
         else{
           gold = gold-5;
           resources = resources-3;
+          troops++;
           System.out.println("Congradulations, you successfully trained another unit\nYou have "+troops+" units");
         }
         continuing = false;
@@ -210,7 +210,33 @@ public class Civilization {
     }
   }
   public static void researchTech(){
-
+    int research =0;
+    boolean continuing = true;
+    System.out.println("You have "+tech+" technology past the stone age\nTo develop more technology costs 50 gold and 2 resources\nYou currently have "+gold+" gold and "+resources+" resources");
+    while (continuing ==true){
+      System.out.println("Would you like to train more units?\nYes[1]\nNo [2]");
+      build = scan.nextInt();
+      scan.nextLine();
+      if (build==2) {
+        preformAction();
+        continuing =false;
+      }
+      else if (build==1){
+        if (gold<5) {
+          System.out.println("You do not have enough gold");
+        }
+        else if (resources<3) {
+          System.out.println("You do not have enough resources");
+        }
+        else{
+          gold = gold-5;
+          resources = resources-3;
+          troops++;
+          System.out.println("Congradulations, you successfully trained another unit\nYou have "+troops+" units");
+        }
+        continuing = false;
+      }
+    }
   }
   public static void attackCity(){
 
