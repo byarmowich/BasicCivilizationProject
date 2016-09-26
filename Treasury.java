@@ -7,7 +7,7 @@ public class Treasury{
 
 	public boolean spend(int spending){
 		if (spending > gold){
-			return false
+			return false;
 		} else {
 			gold = gold - spending;
 			return true;
