@@ -4,9 +4,12 @@ public class Desert {
     private Scanner scan = new Scanner(System.in);
 
     public int findTreasure() {
-        // YOUR CODE HERE
-        // A valid treasure trove must be greater than 0
-        return -1;
+        int randomTreasure = (int) Math.ceil(Math.random()*500);
+        boolean getsLost = false;
+        if ((int)Math.ceil(Math.random()*10)==1){
+            lost();
+        }
+        return randomTreasure;
     }
 
     public boolean lost() {

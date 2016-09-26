@@ -29,7 +29,6 @@ public class Hills {
     public int excavate() {
         int i = rand.nextInt(25);
         int j = rand.nextInt(25);
-
         return goldLocation[i][j];
     }
 
