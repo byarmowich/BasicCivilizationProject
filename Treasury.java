@@ -1,5 +1,9 @@
 public class Treasury{
-	private int gold = 200;
+	private int gold;
+
+	public Treasury(){
+		gold = 200;
+	}
 
 	public int getCoins(){
 		return gold;

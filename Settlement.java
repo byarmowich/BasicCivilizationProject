@@ -3,6 +3,10 @@ public class Settlement{
 	private Building[] buildings = new Building[10];
 	private int numOfBuildings = 0;
 
+	public Settlement(){
+		addBuilding(0, 0);
+	}
+
 	public void addBuilding(Building newBuilding){
 		if (!buildings[buildings.length - 1].equals(null)){
 			expandSettlement();

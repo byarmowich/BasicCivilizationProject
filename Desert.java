@@ -6,7 +6,7 @@ public class Desert {
     public int findTreasure() {
         int randomTreasure = (int) Math.ceil(Math.random()*500);
         boolean getsLost = false;
-        if ((int)Math.ceil(Math.random()*10)==1){
+        if ((int)Math.ceil(Math.random() * 10) == 7){
             lost();
         }
         return randomTreasure;
