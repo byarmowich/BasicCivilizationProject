@@ -5,6 +5,7 @@ public class RomanEmpire{
 	private River water;
 	private Technology tech;
 	private Strategy strat;
+	private Hills hill;
 	private Settlement[] settlements = new Settlement[10];
 	private int numOfSettlements = 1;
 
@@ -15,6 +16,7 @@ public class RomanEmpire{
 		water = new River("The Tiber");
 		tech = new Technology();
 		strat = new Strategy();
+		hill = new Hills();
 		settlements[0] = new Settlement();
 	}
 

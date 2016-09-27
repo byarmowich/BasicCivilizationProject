@@ -5,6 +5,7 @@ public class Egypt{
 	private River water;
 	private Technology tech;
 	private Strategy strat;
+	private Desert desert;
 	private Settlement[] settlements = new Settlement[10];
 	private int numOfSettlements = 1;
 
@@ -15,6 +16,7 @@ public class Egypt{
 		water = new River("The Nile");
 		tech = new Technology();
 		strat = new Strategy();
+		desert = new Desert();
 		settlements[0] = new Settlement();
 	}
 
