@@ -45,7 +45,7 @@ public class CivilizationGame {
             System.out.println("You have " + egypt.getTreasury().getCoins()
                 + " coins in your treasury, "
                 + egypt.getPopulation().getWarriors() + " warriors, and "
-                + egypt.getPopulation().getCivilians() + " civilians.\n")
+                + egypt.getPopulation().getCivilians() + " civilians.\n");
             System.out.println("What would you like to do?\n"
                 + "1. Build my empire\n"
                 + "2. CONQUER\n"
@@ -294,7 +294,7 @@ public class CivilizationGame {
             System.out.println("You have " + qin.getTreasury().getCoins()
                 + " coins in your treasury, "
                 + qin.getPopulation().getWarriors() + " warriors, and "
-                + qin.getPopulation().getCivilians() + " civilians.\n")
+                + qin.getPopulation().getCivilians() + " civilians.\n");
             System.out.println("Welcome to the Qin Dynasty - what would you "
                 + "like to do?\n"
                 + "1. Build my empire\n"
@@ -469,7 +469,7 @@ public class CivilizationGame {
             System.out.println("You have " + rome.getTreasury().getCoins()
                 + " coins in your treasury, "
                 + rome.getPopulation().getWarriors() + " warriors, and "
-                + rome.getPopulation().getCivilians() + " civilians.\n")
+                + rome.getPopulation().getCivilians() + " civilians.\n");
             System.out.println("Welcome to Rome - what would you like to do?\n"
                 + "1. Build my empire\n"
                 + "2. CONQUER\n"

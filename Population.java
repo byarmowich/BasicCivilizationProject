@@ -12,6 +12,18 @@ public class Population {
     	happiness = 200;
     }
 
+    public int getCivilians(){
+    	return civilians;
+    }
+
+    public int getWarriors(){
+    	return warriors;
+    }
+
+    public int getHappiness(){
+    	return happiness;
+    }
+
     public boolean canBattle() {
         if (this.warriors > rand.nextInt(100)) {
             this.warriors -= rand.nextInt(20);
