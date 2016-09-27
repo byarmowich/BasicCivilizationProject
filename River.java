@@ -9,6 +9,10 @@ public class River{
 		fillRiver();
 	}
 
+	public String getName(){
+		return this.name;
+	}
+
 	public Fish getFish(){
 		if (numOfFish == 0) {
 			return null;

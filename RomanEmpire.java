@@ -13,11 +13,43 @@ public class RomanEmpire{
 		pop = new Population();
 		cash = new Treasury();
 		mine = new CoalMine();
-		water = new River("The Tiber");
+		water = new River("Tiber");
 		tech = new Technology();
 		strat = new Strategy();
 		hill = new Hills();
-		settlements[0] = new Settlement();
+		settlements[0] = new Settlement("Rome");
+	}
+
+	public Population getPopulation(){
+		return pop;
+	}
+
+	public Treasury getTreasury(){
+		return cash;
+	}
+
+	public CoalMine getCoalMine(){
+		return mine;
+	}
+
+	public River getRiver(){
+		return water;
+	}
+
+	public Technology getTechnology(){
+		return tech;
+	}
+
+	public Strategy getStrategy(){
+		return strat;
+	}
+
+	public Hills getHills(){
+		return hill;
+	}
+
+	public Settlement[] getSettlements(){
+		return settlements;
 	}
 
 	public boolean settle(Settlement newSettlement){
@@ -29,11 +61,11 @@ public class RomanEmpire{
 		}
 	}
 
-	public int getNumOfSettlements(){
+	public int getNumSettlements(){
 		return numOfSettlements;
 	}
 
-	public boolean buildAquaduct(Settlement whereToBuildAquaduct){
+	public boolean buildAqueduct(Settlement whereToBuildAquaduct){
 		boolean built = whereToBuildAquaduct.build(cash.getCoins(), pop, 250, 130);
 		tech.increaseExperience(10);
 		return built;

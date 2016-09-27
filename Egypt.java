@@ -13,11 +13,43 @@ public class Egypt{
 		pop = new Population();
 		cash = new Treasury();
 		mine = new CoalMine();
-		water = new River("The Nile");
+		water = new River("Nile");
 		tech = new Technology();
 		strat = new Strategy();
-		desert = new Desert();
-		settlements[0] = new Settlement();
+		desert = new Desert("Egyptian Desert");
+		settlements[0] = new Settlement("Thebes");
+	}
+
+	public Population getPopulation(){
+		return pop;
+	}
+
+	public Treasury getTreasury(){
+		return cash;
+	}
+
+	public CoalMine getCoalMine(){
+		return mine;
+	}
+
+	public River getRiver(){
+		return water;
+	}
+
+	public Technology getTechnology(){
+		return tech;
+	}
+
+	public Strategy getStrategy(){
+		return strat;
+	}
+
+	public Desert getDesert(){
+		return desert;
+	}
+
+	public Settlement[] getSettlements(){
+		return settlements;
 	}
 
 	public boolean settle(Settlement newSettlement){
@@ -29,7 +61,7 @@ public class Egypt{
 		}
 	}
 
-	public int getNumOfSettlements(){
+	public int getNumSettlements(){
 		return numOfSettlements;
 	}
 

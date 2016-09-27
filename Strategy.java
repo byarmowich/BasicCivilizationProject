@@ -9,6 +9,10 @@ public class Strategy{
 		checkStrategyVictory();
 	}
 
+	public int getStrategyLevel(){
+		return strategyLevel;
+	}
+
 	public void siege(){
 		strategyLevel = strategyLevel + SIEGE_INCREASE;
 		checkStrategyVictory();
@@ -20,7 +24,7 @@ public class Strategy{
 		}
 	}
 
-	public boolean hasStrategyWin(){
+	public boolean conqueredTheWorld(){
 		if (conquerTheWorld){
 			return true;
 		} else{

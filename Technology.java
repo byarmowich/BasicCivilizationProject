@@ -20,6 +20,14 @@ public class Technology{
 		}
 	}
 
+	public int getUnderstanding(){
+		return understanding;
+	}
+
+	public int getBuildExperience(){
+		return experienceLevel;
+	}
+
 	public void increaseExperience(int expIncrease){
 		experienceLevel = experienceLevel + expIncrease;
 		checkWorldWonder();

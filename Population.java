@@ -16,8 +16,16 @@ public class Population {
     	return civilians;
     }
 
+    public void setCivilians(int moreCivilians){
+    	civilians = civilians + moreCivilians;
+    }
+
     public int getWarriors(){
     	return warriors;
+    }
+
+    public void setWarriors(int moreWarriors){
+    	warriors = warriors + moreWarriors;
     }
 
     public int getHappiness(){

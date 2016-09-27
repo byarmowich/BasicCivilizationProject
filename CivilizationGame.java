@@ -15,6 +15,7 @@ public class CivilizationGame {
 
         int civChoice = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------");
         switch (civChoice) {
         case 1:
             playEgypt();
@@ -34,18 +35,19 @@ public class CivilizationGame {
         Egypt egypt = new Egypt();
         while (!egypt.getStrategy().conqueredTheWorld()
             && !egypt.getTechnology().hasTechnologyWin()) {
-            System.out.println("\n\nWelcome to Egypt - you have a"
-                + " strategy level of "
-                + egypt.getStrategy().getStrategyLevel()
-                + ", an understanding of "
+            System.out.println("\n\nWelcome to Egypt:");
+            System.out.print("You have a strategy level of "
+                + egypt.getStrategy().getStrategyLevel());
+            System.out.println(",\nAn understanding of "
                 + egypt.getTechnology().getUnderstanding()
-                + ", and a build experience of "
+                + ", and\nA build experience of "
                 + egypt.getTechnology().getBuildExperience()
                 + ".\n");
-            System.out.println("You have " + egypt.getTreasury().getCoins()
-                + " coins in your treasury, "
-                + egypt.getPopulation().getWarriors() + " warriors, and "
-                + egypt.getPopulation().getCivilians() + " civilians.\n");
+            System.out.println("You have: ");
+            System.out.println(egypt.getTreasury().getCoins()
+                + " coins in your treasury, ");
+            System.out.println(egypt.getPopulation().getWarriors() + " warriors, and ");
+            System.out.println(egypt.getPopulation().getCivilians() + " civilians.\n");
             System.out.println("What would you like to do?\n"
                 + "1. Build my empire\n"
                 + "2. CONQUER\n"
@@ -54,7 +56,7 @@ public class CivilizationGame {
 
             int move = scan.nextInt();
             scan.nextLine();
-
+            System.out.println("\n--------------------------\n");
             switch (move) {
             case 1:
                 settle(egypt);
@@ -86,10 +88,12 @@ public class CivilizationGame {
             + " cities!\n");
         int move = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             System.out.println("What would you like to name your new "
                 + "settlement?");
             String settlementName = scan.nextLine();
+            System.out.println("\n--------------------------\n");
             Settlement settlement = new Settlement(settlementName);
             if (egypt.settle(settlement)) {
                 System.out.println("You have settled the new land of "
@@ -109,6 +113,7 @@ public class CivilizationGame {
                         + settlements[i].getName());
                 }
                 int settleNum = scan.nextInt();
+                System.out.println("\n--------------------------\n");
                 if (settleNum <= egypt.getNumSettlements() && settleNum > 0) {
                     build(egypt, settlements[settleNum - 1]);
                 }
@@ -129,6 +134,7 @@ public class CivilizationGame {
             + "2. Nothing. I'm good for now.\n");
         int buildMove = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------\n");
         String print = "\n";
         if (buildMove == 1) {
             print += egypt.buildPyramid(settlement) ? "Wow, what a beautiful"
@@ -144,6 +150,7 @@ public class CivilizationGame {
             + "1. Battle. You must have 40 warriors to go to battle.\n"
             + "2. Siege. You must have 80 warriors to go to battle.\n");
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         int result = -1;
         if (move == 1) {
             if (egypt.getPopulation().getWarriors() > 40) {
@@ -191,6 +198,7 @@ public class CivilizationGame {
         System.out.println("Make a choice!\n");
 
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             System.out.println("\nThe only point to exploring the Desert is to"
                 + " find treasure, of course!");
@@ -217,6 +225,7 @@ public class CivilizationGame {
             + "\n Which would you like to search for?\n");
 
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             int goldFound = hills.excavate();
             treasury.earn(goldFound);
@@ -283,19 +292,19 @@ public class CivilizationGame {
         QinDynasty qin = new QinDynasty();
         while (!qin.getStrategy().conqueredTheWorld()
             && !qin.getTechnology().hasTechnologyWin()) {
-            System.out.println("\n\nWelcome to the Qin Dynasty -"
-                + " you have a strategy level of "
+            System.out.println("\n\nWelcome to the Qin Dynasty"
+                + "\nYou have a strategy level of "
                 + qin.getStrategy().getStrategyLevel()
-                + ", an understanding of "
+                + ",\nan understanding of "
                 + qin.getTechnology().getUnderstanding()
-                + ", and a build experience of "
+                + ", and\na build experience of "
                 + qin.getTechnology().getBuildExperience()
                 + ".\n");
             System.out.println("You have " + qin.getTreasury().getCoins()
-                + " coins in your treasury, "
-                + qin.getPopulation().getWarriors() + " warriors, and "
+                + " coins in your treasury,\n"
+                + qin.getPopulation().getWarriors() + " warriors, and\n"
                 + qin.getPopulation().getCivilians() + " civilians.\n");
-            System.out.println("Welcome to the Qin Dynasty - what would you "
+            System.out.println("Welcome to the Qin Dynasty\nWhat would you "
                 + "like to do?\n"
                 + "1. Build my empire\n"
                 + "2. CONQUER\n"
@@ -304,7 +313,7 @@ public class CivilizationGame {
 
             int move = scan.nextInt();
             scan.nextLine();
-
+            System.out.println("\n--------------------------\n");
             switch (move) {
             case 1:
                 settle(qin);
@@ -332,10 +341,12 @@ public class CivilizationGame {
             + " cities!\n");
         int move = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             System.out.println("What would you like to name your new "
                 + "settlement?");
             String settlementName = scan.nextLine();
+            System.out.println("\n--------------------------\n");
             Settlement settlement = new Settlement(settlementName);
             if (qin.settle(settlement)) {
                 System.out.println("You have settled the new land of "
@@ -355,6 +366,7 @@ public class CivilizationGame {
                         + settlements[i].getName());
                 }
                 int settleNum = scan.nextInt();
+                System.out.println("\n--------------------------\n");
                 if (settleNum <= qin.getNumSettlements() && settleNum > 0) {
                     build(qin, settlements[settleNum - 1]);
                 }
@@ -376,6 +388,7 @@ public class CivilizationGame {
             + "workers.\n3. Nothing. I'm good for now.\n");
         int buildMove = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------\n");
         String print = "\n";
         if (buildMove == 1) {
             print += qin.buildWall(settlement) ? "Wow, what a beautiful wall."
@@ -394,6 +407,7 @@ public class CivilizationGame {
             + "1. Battle. You must have 40 warriors to go to battle.\n"
             + "2. Siege. You must have 80 warriors to go to battle.\n");
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         int result = -1;
         if (move == 1) {
             if (qin.getPopulation().getWarriors() > 40) {
@@ -435,6 +449,7 @@ public class CivilizationGame {
         System.out.println("Make a choice!\n");
 
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             gameplayHills(qin.getHills(), qin.getPopulation(),
                 qin.getTreasury(), qin.getCoalMine());
@@ -458,17 +473,17 @@ public class CivilizationGame {
         RomanEmpire rome = new RomanEmpire();
         while (!rome.getStrategy().conqueredTheWorld()
             && !rome.getTechnology().hasTechnologyWin()) {
-            System.out.println("\n\nWelcome to Rome -"
-                + " you have a strategy level of "
+            System.out.println("\n\nWelcome to Rome\n"
+                + "You have a strategy level of "
                 + rome.getStrategy().getStrategyLevel()
-                + ", an understanding of "
+                + ",\nAn understanding of "
                 + rome.getTechnology().getUnderstanding()
-                + ", and a build experience of "
+                + ", and\nA build experience of "
                 + rome.getTechnology().getBuildExperience()
                 + ".\n");
             System.out.println("You have " + rome.getTreasury().getCoins()
-                + " coins in your treasury, "
-                + rome.getPopulation().getWarriors() + " warriors, and "
+                + " coins in your treasury,\n"
+                + rome.getPopulation().getWarriors() + " warriors, and\n"
                 + rome.getPopulation().getCivilians() + " civilians.\n");
             System.out.println("Welcome to Rome - what would you like to do?\n"
                 + "1. Build my empire\n"
@@ -478,7 +493,7 @@ public class CivilizationGame {
 
             int move = scan.nextInt();
             scan.nextLine();
-
+			System.out.println("\n--------------------------\n");
             switch (move) {
             case 1:
                 settle(rome);
@@ -506,10 +521,12 @@ public class CivilizationGame {
             + " cities!\n");
         int move = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             System.out.println("What would you like to name your new "
                 + "settlement?");
             String settlementName = scan.nextLine();
+            System.out.println("\n--------------------------\n");
             Settlement settlement = new Settlement(settlementName);
             if (rome.settle(settlement)) {
                 System.out.println("You have settled the new land of "
@@ -529,6 +546,7 @@ public class CivilizationGame {
                         + settlements[i].getName());
                 }
                 int settleNum = scan.nextInt();
+                System.out.println("\n--------------------------\n");
                 if (settleNum <= rome.getNumSettlements() && settleNum > 0) {
                     build(rome, settlements[settleNum - 1]);
                 }
@@ -552,6 +570,7 @@ public class CivilizationGame {
             + "4. Nothing. I'm good for now.\n");
         int buildMove = scan.nextInt();
         scan.nextLine();
+        System.out.println("\n--------------------------\n");
         String print = "\n";
         if (buildMove == 1) {
             print += rome.buildAqueduct(settlement)
@@ -575,6 +594,7 @@ public class CivilizationGame {
             + "1. Battle. You must have 40 warriors to go to battle.\n"
             + "2. Siege. You must have 80 warriors to go to battle.\n");
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         int result = -1;
         if (move == 1) {
             if (rome.getPopulation().getWarriors() > 40) {
@@ -616,6 +636,7 @@ public class CivilizationGame {
         System.out.println("Make a choice!\n");
 
         int move = scan.nextInt();
+        System.out.println("\n--------------------------\n");
         if (move == 1) {
             gameplayHills(rome.getHills(), rome.getPopulation(),
                 rome.getTreasury(), rome.getCoalMine());

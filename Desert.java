@@ -1,7 +1,16 @@
 import java.util.Scanner;
 
 public class Desert {
+    private String name;
     private Scanner scan = new Scanner(System.in);
+
+    public Desert(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 
     public int findTreasure() {
         int randomTreasure = (int) Math.ceil(Math.random()*500);

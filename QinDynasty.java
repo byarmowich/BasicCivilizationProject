@@ -13,11 +13,43 @@ public class QinDynasty{
 		pop = new Population();
 		cash = new Treasury();
 		mine = new CoalMine();
-		water = new River("The Nile");
+		water = new River("Yangztee");
 		tech = new Technology();
 		strat = new Strategy();
 		hill = new Hills();
-		settlements[0] = new Settlement();
+		settlements[0] = new Settlement("Bejing");
+	}
+
+	public Population getPopulation(){
+		return pop;
+	}
+
+	public Treasury getTreasury(){
+		return cash;
+	}
+
+	public CoalMine getCoalMine(){
+		return mine;
+	}
+
+	public River getRiver(){
+		return water;
+	}
+
+	public Technology getTechnology(){
+		return tech;
+	}
+
+	public Strategy getStrategy(){
+		return strat;
+	}
+
+	public Hills getHills(){
+		return hill;
+	}
+
+	public Settlement[] getSettlements(){
+		return settlements;
 	}
 
 	public boolean settle(Settlement newSettlement){
@@ -29,7 +61,7 @@ public class QinDynasty{
 		}
 	}
 
-	public int getNumOfSettlements(){
+	public int getNumSettlements(){
 		return numOfSettlements;
 	}
 

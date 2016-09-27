@@ -3,8 +3,12 @@ public class Settlement{
 	private Building[] buildings = new Building[10];
 	private int numOfBuildings = 0;
 
-	public Settlement(){
-		addBuilding(0, 0);
+	public Settlement(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return this.name;
 	}
 
 	public void addBuilding(Building newBuilding){
