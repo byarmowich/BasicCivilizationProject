@@ -1,24 +1,24 @@
 public class Treasury {
-	private int gold;
+    private int gold;
 
-	public Treasury() {
-		gold = 200;
-	}
+    public Treasury() {
+        gold = 200;
+    }
 
-	public int getCoins() {
-		return gold;
-	}
+    public int getCoins() {
+        return gold;
+    }
 
-	public boolean spend(int spending) {
-		if (spending > gold) {
-			return false;
-		} else {
-			gold = gold - spending;
-			return true;
-		}
-	}
+    public boolean spend(int spending) {
+        if (spending > gold) {
+            return false;
+        } else {
+            gold = gold - spending;
+            return true;
+        }
+    }
 
-	public void earn(int earned) {
-		gold = gold + earned;
-	}
+    public void earn(int earned) {
+        gold = gold + earned;
+    }
 }

@@ -46,8 +46,10 @@ public class CivilizationGame {
             System.out.println("You have: ");
             System.out.println(egypt.getTreasury().getCoins()
                 + " coins in your treasury, ");
-            System.out.println(egypt.getPopulation().getWarriors() + " warriors, and ");
-            System.out.println(egypt.getPopulation().getCivilians() + " civilians.\n");
+            System.out.println(egypt.getPopulation().getWarriors()
+                + " warriors, and ");
+            System.out.println(egypt.getPopulation().getCivilians()
+                + " civilians.\n");
             System.out.println("What would you like to do?\n"
                 + "1. Build my empire\n"
                 + "2. CONQUER\n"
@@ -493,7 +495,7 @@ public class CivilizationGame {
 
             int move = scan.nextInt();
             scan.nextLine();
-			System.out.println("\n--------------------------\n");
+            System.out.println("\n--------------------------\n");
             switch (move) {
             case 1:
                 settle(rome);
