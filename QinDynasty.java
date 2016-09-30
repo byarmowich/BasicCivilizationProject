@@ -1,4 +1,4 @@
-public class QinDynasty{
+public class QinDynasty {
 	private Population pop;
 	private Treasury cash;
 	private CoalMine mine;
@@ -9,7 +9,7 @@ public class QinDynasty{
 	private Settlement[] settlements = new Settlement[10];
 	private int numOfSettlements = 1;
 
-	public QinDynasty(){
+	public QinDynasty() {
 		pop = new Population();
 		cash = new Treasury();
 		mine = new CoalMine();
@@ -20,66 +20,68 @@ public class QinDynasty{
 		settlements[0] = new Settlement("Bejing");
 	}
 
-	public Population getPopulation(){
+	public Population getPopulation() {
 		return pop;
 	}
 
-	public Treasury getTreasury(){
+	public Treasury getTreasury() {
 		return cash;
 	}
 
-	public CoalMine getCoalMine(){
+	public CoalMine getCoalMine() {
 		return mine;
 	}
 
-	public River getRiver(){
+	public River getRiver() {
 		return water;
 	}
 
-	public Technology getTechnology(){
+	public Technology getTechnology() {
 		return tech;
 	}
 
-	public Strategy getStrategy(){
+	public Strategy getStrategy() {
 		return strat;
 	}
 
-	public Hills getHills(){
+	public Hills getHills() {
 		return hill;
 	}
 
-	public Settlement[] getSettlements(){
+	public Settlement[] getSettlements() {
 		return settlements;
 	}
 
-	public boolean settle(Settlement newSettlement){
-		if (numOfSettlements > 9){
+	public boolean settle(Settlement newSettlement) {
+		if (numOfSettlements > 9) {
 			return false;
-		} else{
+		} else {
 			settlements[numOfSettlements++] = newSettlement;
 			return true;
 		}
 	}
 
-	public int getNumSettlements(){
+	public int getNumSettlements() {
 		return numOfSettlements;
 	}
 
-	public boolean buildWall(Settlement whereToBuildWall){
-		boolean built = whereToBuildWall.build(cash.getCoins(), pop, 1000, 100);
+	public boolean buildWall(Settlement whereToBuildWall) {
+		boolean built;
+		built = whereToBuildWall.build(cash.getCoins(), pop, 1000, 100);
 		tech.increaseExperience(10);
 		return built;
 	}
 
 
-	public boolean buildHouse(Settlement whereToBuildHouse){
-		boolean built = whereToBuildHouse.build(cash.getCoins(), pop, 30, 8);
+	public boolean buildHouse(Settlement whereToBuildHouse) {
+		boolean built;
+		built = whereToBuildHouse.build(cash.getCoins(), pop, 30, 8);
 		tech.increaseExperience(10);
 		return built;
 	}
 
-	public void establishLegalism(){
-		if (pop.getHappiness() >= 20){
+	public void establishLegalism() {
+		if (pop.getHappiness() >= 20) {
 			pop.decreaseHappiness(20);
 			tech.philosophize();
 		}

@@ -1,4 +1,4 @@
-public class Egypt{
+public class Egypt {
 	private Population pop;
 	private Treasury cash;
 	private CoalMine mine;
@@ -9,7 +9,7 @@ public class Egypt{
 	private Settlement[] settlements = new Settlement[10];
 	private int numOfSettlements = 1;
 
-	public Egypt(){
+	public Egypt() {
 		pop = new Population();
 		cash = new Treasury();
 		mine = new CoalMine();
@@ -20,58 +20,58 @@ public class Egypt{
 		settlements[0] = new Settlement("Thebes");
 	}
 
-	public Population getPopulation(){
+	public Population getPopulation() {
 		return pop;
 	}
 
-	public Treasury getTreasury(){
+	public Treasury getTreasury() {
 		return cash;
 	}
 
-	public CoalMine getCoalMine(){
+	public CoalMine getCoalMine() {
 		return mine;
 	}
 
-	public River getRiver(){
+	public River getRiver() {
 		return water;
 	}
 
-	public Technology getTechnology(){
+	public Technology getTechnology() {
 		return tech;
 	}
 
-	public Strategy getStrategy(){
+	public Strategy getStrategy() {
 		return strat;
 	}
 
-	public Desert getDesert(){
+	public Desert getDesert() {
 		return desert;
 	}
 
-	public Settlement[] getSettlements(){
+	public Settlement[] getSettlements() {
 		return settlements;
 	}
 
-	public boolean settle(Settlement newSettlement){
-		if (numOfSettlements > 9){
+	public boolean settle(Settlement newSettlement) {
+		if (numOfSettlements > 9) {
 			return false;
-		} else{
+		} else {
 			settlements[numOfSettlements++] = newSettlement;
 			return true;
 		}
 	}
 
-	public int getNumSettlements(){
+	public int getNumSettlements() {
 		return numOfSettlements;
 	}
 
-	public boolean buildPyramid(Settlement whereToBuildPyramid){
+	public boolean buildPyramid(Settlement whereToBuildPyramid) {
 		boolean built = whereToBuildPyramid.build(cash.getCoins(), pop, 500, 100);
 		tech.increaseExperience(10);
 		return built;
 	}
 
-	public void practiceHieroglyphics(){
+	public void practiceHieroglyphics() {
 		tech.improveWriting();
 		pop.increaseHappiness(10);
 	}

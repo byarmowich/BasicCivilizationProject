@@ -1,16 +1,16 @@
-public class Treasury{
+public class Treasury {
 	private int gold;
 
-	public Treasury(){
+	public Treasury() {
 		gold = 200;
 	}
 
-	public int getCoins(){
+	public int getCoins() {
 		return gold;
 	}
 
-	public boolean spend(int spending){
-		if (spending > gold){
+	public boolean spend(int spending) {
+		if (spending > gold) {
 			return false;
 		} else {
 			gold = gold - spending;
@@ -18,7 +18,7 @@ public class Treasury{
 		}
 	}
 
-	public void earn(int earned){
+	public void earn(int earned) {
 		gold = gold + earned;
 	}
 }

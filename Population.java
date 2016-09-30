@@ -6,29 +6,29 @@ public class Population {
     private int civilians;
     private int happiness;
 
-    public Population(){
+    public Population() {
     	warriors = 50;
     	civilians = 50;
     	happiness = 200;
     }
 
-    public int getCivilians(){
+    public int getCivilians() {
     	return civilians;
     }
 
-    public void setCivilians(int moreCivilians){
+    public void setCivilians(int moreCivilians) {
     	civilians = civilians + moreCivilians;
     }
 
-    public int getWarriors(){
+    public int getWarriors() {
     	return warriors;
     }
 
-    public void setWarriors(int moreWarriors){
+    public void setWarriors(int moreWarriors) {
     	warriors = warriors + moreWarriors;
     }
 
-    public int getHappiness(){
+    public int getHappiness() {
     	return happiness;
     }
 
@@ -40,19 +40,19 @@ public class Population {
         return false;
     }
 
-    public void increaseHappiness(int increase){
+    public void increaseHappiness(int increase) {
     	happiness = happiness + increase;
     }
 
-    public void decreaseHappiness(int decrease){
+    public void decreaseHappiness(int decrease) {
     	happiness = happiness - decrease;
-    	if (happiness < 0){
+    	if (happiness < 0) {
     		happiness = 0;
     	}
     }
 
-    public boolean canWork(int workersNeeded){
-    	if (workersNeeded < civilians){
+    public boolean canWork(int workersNeeded) {
+    	if (workersNeeded < civilians) {
 			return false;
 		} else {
 			civilians = civilians - workersNeeded;
@@ -60,15 +60,15 @@ public class Population {
 		}
     }
 
-    public Game hunt(Hills headinToTheHills){
+    public Game hunt(Hills headinToTheHills) {
     	return headinToTheHills.hunt();
     }
-    public Fish fish(River headinToTheRiver){
+    public Fish fish(River headinToTheRiver) {
     	return headinToTheRiver.getFish();
     }
-    public boolean canCook(Game toCook, CoalMine myCoal){
-    	if (myCoal.getCoal() > 4 * myCoal.getBurnCost()){
-    		for (int i = 0; i < 4; i++){
+    public boolean canCook(Game toCook, CoalMine myCoal) {
+    	if (myCoal.getCoal() > 4 * myCoal.getBurnCost()) {
+    		for (int i = 0; i < 4; i++) {
     			myCoal.burn();
     		}
     		warriors = warriors + 40;
@@ -79,9 +79,9 @@ public class Population {
     	}
     }
 
-    public boolean canCook(Fish toCook, CoalMine myCoal){   	
-    	if (myCoal.getCoal() > 4 * myCoal.getBurnCost()){
-    		for (int i = 0; i < 4; i++){
+    public boolean canCook(Fish toCook, CoalMine myCoal) {   	
+    	if (myCoal.getCoal() > 4 * myCoal.getBurnCost()) {
+    		for (int i = 0; i < 4; i++) {
     			myCoal.burn();
     		}
     		warriors = warriors + 10;

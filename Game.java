@@ -1,15 +1,15 @@
-public class Game{
+public class Game {
 	private int healthIncrease;
 
-	public Game(){
+	public Game() {
 		healthIncrease = 20;
 	}
 
-	public Game(int healthIncrease){
+	public Game(int healthIncrease) {
 		this.healthIncrease = healthIncrease;
 	}
 
-	public int getHealth(){
+	public int getHealth() {
 		return healthIncrease;
 	}
 }

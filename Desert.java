@@ -4,18 +4,18 @@ public class Desert {
     private String name;
     private Scanner scan = new Scanner(System.in);
 
-    public Desert(String name){
+    public Desert(String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
     public int findTreasure() {
-        int randomTreasure = (int) Math.ceil(Math.random()*500);
+        int randomTreasure = (int) Math.ceil(Math.random() * 500);
         boolean getsLost = false;
-        if ((int)Math.ceil(Math.random() * 10) == 7){
+        if ((int) Math.ceil(Math.random() * 10) == 7) {
             lost();
         }
         return randomTreasure;
