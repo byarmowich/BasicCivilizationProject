@@ -1,6 +1,8 @@
+package model;
+
 import java.util.Random;
 
-public class Hills {
+class Hills {
     private static Random rand = new Random();
 
     private Game[] game;
@@ -29,6 +31,7 @@ public class Hills {
     public int excavate() {
         int i = rand.nextInt(25);
         int j = rand.nextInt(25);
+
         return goldLocation[i][j];
     }
 
