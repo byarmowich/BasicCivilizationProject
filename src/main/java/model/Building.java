@@ -1,6 +1,6 @@
 package model;
 
-abstract class Building extends MapObject {
+abstract public class Building extends MapObject {
     private int goldGeneration;
     private int resourceGeneration;
     private int foodGeneration;

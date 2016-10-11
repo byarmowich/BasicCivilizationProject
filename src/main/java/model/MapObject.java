@@ -1,6 +1,6 @@
 package model;
 
-abstract class MapObject {
+abstract class MapObject implements Symbolizable {
     private int health;
     private Civilization owner;
 
@@ -11,6 +11,11 @@ abstract class MapObject {
 
     public Civilization getOwner() {
         return owner;
+    }
+
+    public char symbol() {
+        char def = 's';
+        return def;
     }
 
     public void damage(int healthAmount) {

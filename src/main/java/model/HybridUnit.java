@@ -1,6 +1,6 @@
 package model;
 
-class HybridUnit extends MilitaryUnit {
+public class HybridUnit extends MilitaryUnit {
     public HybridUnit(Civilization owner) {
         super(50, owner, 10, 10, 14, 5, 0, 30);
     }
@@ -11,6 +11,7 @@ class HybridUnit extends MilitaryUnit {
         if (!o.isDestroyed() && o instanceof HybridUnit) {
             damage(((MilitaryUnit) o).getDamage());
         }
+        super.attack(o);
     }
 
     @Override
