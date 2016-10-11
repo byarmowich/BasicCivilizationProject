@@ -1,7 +1,7 @@
 package model;
 
-public interface Symbolizable {
+interface Symbolizable {
 
-    public char symbol();
+    char symbol();
 
 }

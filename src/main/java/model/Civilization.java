@@ -3,15 +3,15 @@ import java.util.Random;
 
 class Civilization{
     private static Random rand = new Random();
-    //private Hills hills = new Hills();
+    private Hills hills = new Hills();
     private String name;
-   // private Desert desert = new Desert();
-    //private Technology technology = new Technology();
-    //private Strategy strategy = new Strategy();
+    private Desert desert = new Desert();
+    private Technology technology = new Technology();
+    private Strategy strategy = new Strategy();
 
     private int numSettlements;
 
-   // private Treasury treasury = new Treasury(50);
+    private Treasury treasury = new Treasury(50);
     private int food = 50;
     private int resources = 50;
     private int happiness = 50;
@@ -20,13 +20,13 @@ class Civilization{
         this.name = name;
     }
 
-//     public Hills getHills() {
-//         return hills;
-//     }
+    public Hills getHills() {
+        return hills;
+    }
 
-//     public Desert getDesert() {
-//         return desert;
-//     }
+    public Desert getDesert() {
+        return desert;
+    }
 
     public String explore() {
         int gain = rand.nextInt(20);
@@ -50,17 +50,17 @@ class Civilization{
         numSettlements--;
     }
 
-//     public Treasury getTreasury() {
-//         return treasury;
-//     }
+    public Treasury getTreasury() {
+        return treasury;
+    }
 
-//     public Strategy getStrategy() {
-//         return strategy;
-//     }
+    public Strategy getStrategy() {
+        return strategy;
+    }
 
-//     public Technology getTechnology() {
-//         return technology;
-//     }
+    public Technology getTechnology() {
+        return technology;
+    }
 
     public int getHappiness() {
         return this.happiness;
@@ -98,59 +98,59 @@ class Civilization{
         this.happiness += happinessAmount;
     }
 
-//     public MeleeUnit getMeleeUnit() {
-//         return new MeleeUnit(this);
-//     }
+    public MeleeUnit getMeleeUnit() {
+        return new MeleeUnit(this);
+    }
 
-//     public RangedUnit getRangedUnit() {
-//         return new RangedUnit(this);
-//     }
+    public RangedUnit getRangedUnit() {
+        return new RangedUnit(this);
+    }
 
-//     public HybridUnit getHybridUnit() {
-//         return new HybridUnit(this);
-//     }
+    public HybridUnit getHybridUnit() {
+        return new HybridUnit(this);
+    }
 
-//     public SiegeUnit getSiegeUnit() {
-//         return new SiegeUnit(this);
-//     }
+    public SiegeUnit getSiegeUnit() {
+        return new SiegeUnit(this);
+    }
 
-//     public SettlerUnit getSettlerUnit(String settlementName) {
-//         return new SettlerUnit(this, settlementName);
-//     }
+    public SettlerUnit getSettlerUnit(String settlementName) {
+        return new SettlerUnit(this, settlementName);
+    }
 
-//     public AnglerUnit getAnglerUnit() {
-//         return new AnglerUnit(this);
-//     }
+    public AnglerUnit getAnglerUnit() {
+        return new AnglerUnit(this);
+    }
 
-//     public CoalMinerUnit getCoalMinerUnit() {
-//         return new CoalMinerUnit(this);
-//     }
+    public CoalMinerUnit getCoalMinerUnit() {
+        return new CoalMinerUnit(this);
+    }
 
-//     public FarmerUnit getFarmerUnit() {
-//         return new FarmerUnit(this);
-//     }
+    public FarmerUnit getFarmerUnit() {
+        return new FarmerUnit(this);
+    }
 
-//     public MasterBuilderUnit getMasterBuilderUnit() {
-//         return new MasterBuilderUnit(this);
-//     }
+    public MasterBuilderUnit getMasterBuilderUnit() {
+        return new MasterBuilderUnit(this);
+    }
 
-//     public Settlement getSettlement(String settlementName) {
-//         return new Settlement(this, settlementName);
-//     }
+    public Settlement getSettlement(String settlementName) {
+        return new Settlement(this, settlementName);
+    }
 
-//     public FishingShack getFishingShack() {
-//         return new FishingShack(this);
-//     }
+    public FishingShack getFishingShack() {
+        return new FishingShack(this);
+    }
 
-//     public CoalMine getCoalMine() {
-//         return new CoalMine(this);
-//     }
+    public CoalMine getCoalMine() {
+        return new CoalMine(this);
+    }
 
-//     public Farm getFarm() {
-//         return new Farm(this);
-//     }
+    public Farm getFarm() {
+        return new Farm(this);
+    }
 
-//     public Landmark getLandmark() {
-//         return new Landmark(this);
-//     }
+    public Landmark getLandmark() {
+        return new Landmark(this);
+    }
 }

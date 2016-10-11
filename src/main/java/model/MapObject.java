@@ -13,6 +13,7 @@ abstract class MapObject implements Symbolizable {
         return owner;
     }
 
+    @Override
     public char symbol() {
         char def = 's';
         return def;

@@ -8,6 +8,6 @@ public class Pyramid extends Landmark {
     @Override
     public void invest() {
         super.invest();
-        
+        getOwner().getTechnology().philosophize();
     }
 }
