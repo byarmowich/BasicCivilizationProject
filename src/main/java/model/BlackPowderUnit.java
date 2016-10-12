@@ -1,6 +1,7 @@
 package model;
 
 public class BlackPowderUnit extends SiegeUnit {
+
     public BlackPowderUnit(Civilization owner) {
         super(owner);
     }
@@ -12,7 +13,7 @@ public class BlackPowderUnit extends SiegeUnit {
 
     @Override
     public void battle(MapObject o) {
-            o.damage(this.getDamage());
+        o.damage(this.getDamage());
     }
 
     @Override

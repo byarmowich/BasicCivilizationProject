@@ -6,7 +6,7 @@ package model;
 //Should return the symbol: f
 
 class FarmerUnit extends Unit implements Convertable {
-    
+
     public FarmerUnit(Civilization owner) {
         super(owner);
     }
@@ -16,11 +16,11 @@ class FarmerUnit extends Unit implements Convertable {
         return 'f';
     }
 
-    public Building convert(){
+    public Building convert() {
         return getOwner().getFarm();
     }
 
-    public boolean canConvert(TileType type){
+    public boolean canConvert(TileType type) {
         return type == TileType.PLAINS;
     }
 

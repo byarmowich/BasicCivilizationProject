@@ -1,7 +1,7 @@
 package model;
 import java.util.Random;
 
-class Civilization{
+class Civilization {
     private static Random rand = new Random();
     private Hills hills = new Hills();
     private String name;
@@ -16,7 +16,7 @@ class Civilization{
     private int resources = 50;
     private int happiness = 50;
 
-    public Civilization(String name){
+    public Civilization(String name) {
         this.name = name;
     }
 
@@ -31,14 +31,15 @@ class Civilization{
     public String explore() {
         int gain = rand.nextInt(20);
         resources += gain;
-        return "You explore your surroundings and acquire " + gain + " resources!";
+        return "You explore your surroundings and acquire "
+            + gain + " resources!";
     }
 
-     public String getName() {
-         return this.name;
-     }
+    public String getName() {
+        return this.name;
+    }
 
-     public int getNumSettlements() {
+    public int getNumSettlements() {
         return numSettlements;
     }
 

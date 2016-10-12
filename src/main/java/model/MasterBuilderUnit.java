@@ -6,7 +6,7 @@ package model;
 //Should return the symbol: m
 
 class MasterBuilderUnit extends Unit implements Convertable {
-    
+
     public MasterBuilderUnit(Civilization owner) {
         super(owner);
     }
@@ -16,11 +16,11 @@ class MasterBuilderUnit extends Unit implements Convertable {
         return 'm';
     }
 
-    public Building convert(){
+    public Building convert() {
         return getOwner().getLandmark();
     }
 
-    public boolean canConvert(TileType type){
+    public boolean canConvert(TileType type) {
         return type == TileType.PLAINS;
     }
 

@@ -1,7 +1,7 @@
 package model;
 public class Coliseum extends Landmark {
-    
-    public Coliseum(Civilization owner){
+
+    public Coliseum(Civilization owner) {
         super(owner);
     }
 

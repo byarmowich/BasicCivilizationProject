@@ -3,7 +3,7 @@ package model;
 public class Farm extends Building {
 
     public Farm(Civilization owner) {
-        super(200,owner, 0, 0, 10, 0, 0,10);
+        super(200, owner, 0, 0, 10, 0, 0, 10);
     }
 
     public char symbol() {

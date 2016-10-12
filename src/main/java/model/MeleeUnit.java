@@ -12,7 +12,8 @@ public class MeleeUnit extends MilitaryUnit {
     @Override
     public void battle(MapObject o) {
         o.damage(this.getDamage());
-        if (!o.isDestroyed() && o instanceof MeleeUnit || o instanceof HybridUnit) {
+        boolean melee = o instanceof MeleeUnit;
+        if (!o.isDestroyed() && (melee || o instanceof HybridUnit)) {
             damage(((MilitaryUnit) o).getDamage());
         }
     }

@@ -1,7 +1,7 @@
 package model;
 public class Pyramid extends Landmark {
-    
-    public Pyramid(Civilization owner){
+
+    public Pyramid(Civilization owner) {
         super(owner);
     }
 

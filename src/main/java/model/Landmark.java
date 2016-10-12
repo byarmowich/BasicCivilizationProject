@@ -1,13 +1,13 @@
 package model;
 
 public class Landmark extends Building {
-    
+
     public Landmark(Civilization owner) {
         super(200, owner, 0, 0, 0, 10, 0, 10);
     }
 
     public char symbol() {
-         return '!';
+        return '!';
     }
 
     public void invest() {

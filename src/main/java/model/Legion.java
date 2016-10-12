@@ -1,11 +1,10 @@
-
 package model;
 
 public class Legion extends MeleeUnit {
     public Legion(Civilization owner) {
         super(owner, 45);
     }
-        @Override
+    @Override
     public char symbol() {
         return 'L';
     }
@@ -14,8 +13,8 @@ public class Legion extends MeleeUnit {
     public String toString() {
         return "Legion " + super.toString();
     }
-    
-        @Override
+
+    @Override
     public void battle(MapObject o) {
         o.damage(this.getDamage());
         if (!o.isDestroyed() && o instanceof MeleeUnit) {

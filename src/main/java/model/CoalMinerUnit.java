@@ -6,7 +6,7 @@ package model;
 //Should return the symbol: c
 
 class CoalMinerUnit extends Unit implements Convertable {
-    
+
     public CoalMinerUnit(Civilization owner) {
         super(owner);
     }
@@ -16,11 +16,11 @@ class CoalMinerUnit extends Unit implements Convertable {
         return 'c';
     }
 
-    public Building convert(){
+    public Building convert() {
         return getOwner().getCoalMine();
     }
 
-    public boolean canConvert(TileType type){
+    public boolean canConvert(TileType type) {
         return type == TileType.HILLS;
     }
 

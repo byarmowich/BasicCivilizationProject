@@ -6,7 +6,7 @@ package model;
 //Should return the symbol: a
 
 class AnglerUnit extends Unit implements Convertable {
-    
+
     public AnglerUnit(Civilization owner) {
         super(owner);
     }
@@ -16,11 +16,11 @@ class AnglerUnit extends Unit implements Convertable {
         return 'a';
     }
 
-    public Building convert(){
+    public Building convert() {
         return getOwner().getFishingShack();
     }
 
-    public boolean canConvert(TileType type){
+    public boolean canConvert(TileType type) {
         return type == TileType.WATER;
     }
 

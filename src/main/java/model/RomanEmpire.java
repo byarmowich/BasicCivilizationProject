@@ -9,8 +9,8 @@ class RomanEmpire extends Civilization {
     public Legion getMeleeUnit() {
         return new Legion(this);
     }
-        @Override
-    public Coliseum getLandmark(){
+    @Override
+    public Coliseum getLandmark() {
         return new Coliseum(this);
     }
 }

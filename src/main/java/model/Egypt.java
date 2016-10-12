@@ -12,7 +12,7 @@ class Egypt extends Civilization {
     }
 
     @Override
-    public Pyramid getLandmark(){
+    public Pyramid getLandmark() {
         return new Pyramid(this);
     }
 }

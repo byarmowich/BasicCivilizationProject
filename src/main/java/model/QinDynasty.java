@@ -6,12 +6,12 @@ class QinDynasty extends Civilization {
         super("Bejing");
     }
 
-        @Override
+    @Override
     public BlackPowderUnit getSiegeUnit() {
         return new BlackPowderUnit(this);
     }
-        @Override
-    public GreatWall getLandmark(){
+    @Override
+    public GreatWall getLandmark() {
         return new GreatWall(this);
     }
 }

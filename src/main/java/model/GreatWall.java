@@ -1,7 +1,7 @@
 package model;
 public class GreatWall extends Landmark {
-    
-    public GreatWall(Civilization owner){
+
+    public GreatWall(Civilization owner) {
         super(owner);
     }
 
