@@ -1,8 +1,9 @@
+
 package model;
 
 public class Legion extends MeleeUnit {
-    public Legion(MapObject mo) {
-        super(mo, 45);
+    public Legion(Civilization owner) {
+        super(owner, 45);
     }
         @Override
     public char symbol() {

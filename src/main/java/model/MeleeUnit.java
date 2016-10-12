@@ -12,10 +12,9 @@ public class MeleeUnit extends MilitaryUnit {
     @Override
     public void battle(MapObject o) {
         o.damage(this.getDamage());
-        if (!o.isDestroyed() && o instanceof MeleeUnit || HybridUnit) {
+        if (!o.isDestroyed() && o instanceof MeleeUnit || o instanceof HybridUnit) {
             damage(((MilitaryUnit) o).getDamage());
         }
-        super.attack(o);
     }
 
     @Override

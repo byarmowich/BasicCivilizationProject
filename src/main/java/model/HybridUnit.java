@@ -1,3 +1,4 @@
+
 package model;
 
 public class HybridUnit extends MilitaryUnit {
@@ -11,7 +12,6 @@ public class HybridUnit extends MilitaryUnit {
         if (!o.isDestroyed() && o instanceof HybridUnit) {
             damage(((MilitaryUnit) o).getDamage());
         }
-        super.attack(o);
     }
 
     @Override

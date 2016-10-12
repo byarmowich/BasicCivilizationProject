@@ -6,12 +6,12 @@ public class Farm extends Building {
         super(200,owner, 0, 0, 10, 0, 0,10);
     }
 
-    public char symbol(){
+    public char symbol() {
         return '+';
     }
     @Override
-    public void invest(){
-        super.setFoodGeneration() = super.getfoodgeneration() + 2;
+    public void invest() {
+        setFoodGeneration(getFoodGeneration() + 2);
     }
 
     public String toString() {

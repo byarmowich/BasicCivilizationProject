@@ -1,3 +1,5 @@
+package model;
+
 //MasterBuilderUnit.java
 //Should return its owner’s version of Landmark.
 //Can only build on PLAINS tiles.
@@ -15,11 +17,11 @@ class MasterBuilderUnit extends Unit implements Convertable {
     }
 
     public Building convert(){
-        return getOwner.getLandmark();
+        return getOwner().getLandmark();
     }
 
     public boolean canConvert(TileType type){
-        return type.equals(PLAINS);
+        return type == TileType.PLAINS;
     }
 
     @Override

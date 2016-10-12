@@ -11,7 +11,7 @@ public class Landmark extends Building {
     }
 
     public void invest() {
-        super.setTechPointGeneration() = super.getTechPointGeneration() + 5;
+        setTechPointGeneration(getTechPointGeneration() + 5);
     }
 
     public String toString() {

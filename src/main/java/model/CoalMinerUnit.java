@@ -1,3 +1,5 @@
+package model;
+
 //CoalMinerUnit.java
 //Should return its owner’s version of CoalMine.
 //Can only build on HILLS tiles.
@@ -15,11 +17,11 @@ class CoalMinerUnit extends Unit implements Convertable {
     }
 
     public Building convert(){
-        return getOwner.getCoalMine();
+        return getOwner().getCoalMine();
     }
 
     public boolean canConvert(TileType type){
-        return type.equals(HILLS);
+        return type == TileType.HILLS;
     }
 
     @Override

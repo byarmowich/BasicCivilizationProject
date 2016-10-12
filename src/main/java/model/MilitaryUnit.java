@@ -1,8 +1,9 @@
 package model;
-abstract class MilitaryUnits extends Unit {
+
+abstract class MilitaryUnit extends Unit {
     private int damage;
 
-    public MilitaryUnits(int health, Civilization owner, int baseEndurance, int pay, int initialGoldCost, int initialFoodCost, int initialResourceCost, int damage){
+    public MilitaryUnit(int health, Civilization owner, int baseEndurance, int pay, int initialGoldCost, int initialFoodCost, int initialResourceCost, int damage){
         super(health, owner, baseEndurance, pay, initialGoldCost, initialFoodCost, initialResourceCost, 10);
         this.damage = damage;
     }
@@ -12,10 +13,14 @@ abstract class MilitaryUnits extends Unit {
         super.setCanAttack(true);
     }
 
+    public int getDamage() {
+    	return damage;
+    }
+
     public abstract void battle(MapObject map);
 
     public void attack(MapObject map) {
-        Strategy.battle();
+        getOwner().getStrategy().battle();
         this.battle(map);
         super.setCanAttack(false);
     }

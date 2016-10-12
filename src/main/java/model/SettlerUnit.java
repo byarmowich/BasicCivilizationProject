@@ -1,3 +1,5 @@
+package model;
+
 //SettlerUnit.java
 //Should have an instance variable townName of type String, which stores the name of the town these guys want to settle.
 //This class’s only constructor should take in a Civilization representing the owner, as well as a String representing the town
@@ -24,12 +26,12 @@ class SettlerUnit extends Unit implements Convertable {
     }
 
     public Building convert() {
-        getOwner.incrementNumOfSettlements();
-        return getOwner.getSettlement(townName);
+        getOwner().incrementNumSettlements();
+        return getOwner().getSettlement(townName);
     }
 
-    public boolean canConvert(TileType type){
-        return type.equals(PLAINS);
+    public boolean canConvert(TileType type) {
+        return type == TileType.PLAINS;
     }
 
     @Override

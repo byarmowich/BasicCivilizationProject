@@ -44,11 +44,6 @@ abstract class Unit extends MapObject {
     public boolean getCanAttack() {
         return this.canAttack;
     }
-    
-    @Override
-    public char symbol() {
-        return type.getSymbol();
-    }
 
     public void setCanAttack(boolean canAttack) {
         this.canAttack = canAttack;

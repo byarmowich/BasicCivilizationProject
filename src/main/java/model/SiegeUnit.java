@@ -9,7 +9,6 @@ public class SiegeUnit extends MilitaryUnit {
     public void battle(MapObject o) {
         if (o instanceof Building) {
             o.damage(this.getDamage());
-            this.attack(o);
         }
     }
 
@@ -20,7 +19,7 @@ public class SiegeUnit extends MilitaryUnit {
 
     @Override
     public void attack(MapObject map) {
-        Strategy.siege();
+        getOwner().getStrategy().siege();
         this.battle(map);
         super.setCanAttack(false);
     }

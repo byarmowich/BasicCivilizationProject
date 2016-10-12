@@ -1,3 +1,5 @@
+package model;
+
 //AnglerUnit.java
 //Should return its owner’s version of FishingShack.
 //Can only build on WATER tiles.
@@ -15,11 +17,11 @@ class AnglerUnit extends Unit implements Convertable {
     }
 
     public Building convert(){
-        return getOwner.getFishingShack();
+        return getOwner().getFishingShack();
     }
 
     public boolean canConvert(TileType type){
-        return type.equals(WATER);
+        return type == TileType.WATER;
     }
 
     @Override
