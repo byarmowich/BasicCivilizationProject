@@ -221,12 +221,18 @@ public class Model {
     }
 
     public static boolean attackSelected(int r, int c) {
-        if(map.isEmpty(r,c)||(!(map.get{
-        	return false;
+        TerrainTile attacking = map.getTile(r, c);
+        MilitaryUnit myMilt = (MilitaryUnit) (selected.getOccupant());
+        if (map.isEmpty(r, c)
+            || (attacking.getOccupant().getOwner().equals(myMilt.getOwner()))
+            || !(myMilt.getCanAttack())) {
+            return false;
         }
-        TerrainTile checking = map.getTile(r,c);
-
-        return false;
+        myMilt.attack(attacking.getOccupant());
+        if (attacking.getOccupant().isDestroyed()) {
+            attacking.setOccupant(null);
+        }
+        return true;
     }
 
     public static boolean convertSelected() {
