@@ -221,7 +221,11 @@ public class Model {
     }
 
     public static boolean attackSelected(int r, int c) {
-        // TODO: Make this actually work :D
+        if(map.isEmpty(r,c)||(!(map.get{
+        	return false;
+        }
+        TerrainTile checking = map.getTile(r,c);
+
         return false;
     }
 
