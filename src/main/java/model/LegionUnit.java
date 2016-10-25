@@ -1,38 +1,38 @@
 package model;
 
 /**
- * Represents a Hybrid unit.
+ * Represents a Legion unit.
  *
  * @author Jim Harris
  * @version 1.0
  */
-class HybridUnit extends MilitaryUnit {
+class LegionUnit extends MeleeUnit {
 
     /**
      * Public constructor
      *
      * @param owner The owner of this unit.
      */
-    public HybridUnit(Civilization owner) {
-        super(50, owner, 10, 10, 14, 5, 0, 30);
+    public LegionUnit(Civilization owner) {
+        super(owner);
+        this.setDamage((int) (this.getDamage() * 1.5));
     }
 
     @Override
     public void battle(MapObject o) {
         o.damage(this.getDamage());
-        if (!o.isDestroyed() && o instanceof HybridUnit) {
+        if (!o.isDestroyed() && o instanceof MeleeUnit) {
             damage(((MilitaryUnit) o).getDamage());
         }
     }
 
     @Override
     public char symbol() {
-        return 'H';
+        return 'L';
     }
-
 
     @Override
     public String toString() {
-        return "Hybrid Unit. " + super.toString();
+        return "Legion. " + super.toString();
     }
 }

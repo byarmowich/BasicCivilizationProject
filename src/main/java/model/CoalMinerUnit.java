@@ -1,14 +1,30 @@
 package model;
 
-//CoalMinerUnit.java
-//Should return its owner’s version of CoalMine.
-//Can only build on HILLS tiles.
-//Should return the symbol: c
-
+/**
+ * Represents a Coal Miner unit that can build a coal mine.
+ *
+ * @author Jim Harris
+ * @version 1.0
+ */
 class CoalMinerUnit extends Unit implements Convertable {
 
+    /**
+     * Public constructor
+     *
+     * @param owner The owner of this unit.
+     */
     public CoalMinerUnit(Civilization owner) {
         super(owner);
+    }
+
+    @Override
+    public Building convert() {
+        return getOwner().getCoalMine();
+    }
+
+    @Override
+    public boolean canConvert(TileType type) {
+        return type == TileType.HILLS;
     }
 
     @Override
@@ -16,16 +32,8 @@ class CoalMinerUnit extends Unit implements Convertable {
         return 'c';
     }
 
-    public Building convert() {
-        return getOwner().getCoalMine();
-    }
-
-    public boolean canConvert(TileType type) {
-        return type == TileType.HILLS;
-    }
-
     @Override
     public String toString() {
-        return "Coal Miner. " + super.toString();
+        return "Coal miners. " + super.toString();
     }
 }

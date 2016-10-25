@@ -1,14 +1,30 @@
 package model;
 
-//AnglerUnit.java
-//Should return its owner’s version of FishingShack.
-//Can only build on WATER tiles.
-//Should return the symbol: a
-
+/**
+ * Represents an angler unit that can build a FishingShack
+ *
+ * @author Jim Harris
+ * @version 1.0
+ */
 class AnglerUnit extends Unit implements Convertable {
 
+    /**
+     * Public constructor
+     *
+     * @param owner The owner of this unit.
+     */
     public AnglerUnit(Civilization owner) {
         super(owner);
+    }
+
+    @Override
+    public Building convert() {
+        return getOwner().getFishingShack();
+    }
+
+    @Override
+    public boolean canConvert(TileType type) {
+        return type == TileType.WATER;
     }
 
     @Override
@@ -16,16 +32,8 @@ class AnglerUnit extends Unit implements Convertable {
         return 'a';
     }
 
-    public Building convert() {
-        return getOwner().getFishingShack();
-    }
-
-    public boolean canConvert(TileType type) {
-        return type == TileType.WATER;
-    }
-
     @Override
     public String toString() {
-        return "Angler. " + super.toString();
+        return "Anglers. " + super.toString();
     }
 }

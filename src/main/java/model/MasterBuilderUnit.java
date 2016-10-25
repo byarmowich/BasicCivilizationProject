@@ -1,14 +1,30 @@
 package model;
 
-//MasterBuilderUnit.java
-//Should return its owner’s version of Landmark.
-//Can only build on PLAINS tiles.
-//Should return the symbol: m
-
+/**
+ * Represents a Master Builder unit that can build a Landmark.
+ *
+ * @author Jim Harris
+ * @version 1.0
+ */
 class MasterBuilderUnit extends Unit implements Convertable {
 
+    /**
+     * Public constructor
+     *
+     * @param owner The owner of this unit.
+     */
     public MasterBuilderUnit(Civilization owner) {
         super(owner);
+    }
+
+    @Override
+    public Building convert() {
+        return getOwner().getLandmark();
+    }
+
+    @Override
+    public boolean canConvert(TileType type) {
+        return type == TileType.PLAINS;
     }
 
     @Override
@@ -16,16 +32,8 @@ class MasterBuilderUnit extends Unit implements Convertable {
         return 'm';
     }
 
-    public Building convert() {
-        return getOwner().getLandmark();
-    }
-
-    public boolean canConvert(TileType type) {
-        return type == TileType.PLAINS;
-    }
-
     @Override
     public String toString() {
-        return "Master Builder. " + super.toString();
+        return "Master Builders. " + super.toString();
     }
 }

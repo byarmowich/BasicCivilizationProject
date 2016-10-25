@@ -1,19 +1,27 @@
 package model;
 
-public class MeleeUnit extends MilitaryUnit {
+/**
+ * Represents a Melee unit.
+ *
+ * @author Jim Harris
+ * @version 1.0
+ */
+class MeleeUnit extends MilitaryUnit {
+
+    /**
+     * Public constructor
+     *
+     * @param owner The owner of this unit.
+     */
     public MeleeUnit(Civilization owner) {
         super(100, owner, 10, 10, 14, 5, 0, 30);
-    }
-
-    public MeleeUnit(Civilization owner, int damage) {
-        super(100, owner, 10, 10, 14, 5, 0, damage);
     }
 
     @Override
     public void battle(MapObject o) {
         o.damage(this.getDamage());
-        boolean melee = o instanceof MeleeUnit;
-        if (!o.isDestroyed() && (melee || o instanceof HybridUnit)) {
+        if (!o.isDestroyed() && o instanceof MeleeUnit
+            || o instanceof HybridUnit) {
             damage(((MilitaryUnit) o).getDamage());
         }
     }
