@@ -1,7 +1,7 @@
 package model;
 
-class MySet<E> implements SimpleSet<E> {
-    private E[] items = (E[]) new Object [1];
+public class MySet<E> implements SimpleSet<E> {
+    private E[] items = (E[]) new Object [0];
     private int itemCount;
 
     public MySet(){
@@ -11,7 +11,18 @@ class MySet<E> implements SimpleSet<E> {
      * Adds the passed in element to the set.
      * @param e the element to be added to the set
      */
-    boolean add(E e) {
+    public boolean add(E e) {
+        itemCount += 1;
+        items = incrementSize();
+        items[itemCount - 1] = e;
+    }
+
+    private E[] incrementSize() {
+        E[] moreItems = (E[]) new Object [itemCount];
+        for (int i = 0; i < items.length; i++) {
+            moreItems[i] = items[i];
+        }
+        return moreItems;
 
     }
 
@@ -22,10 +33,29 @@ class MySet<E> implements SimpleSet<E> {
      * @param e the element to be removed
      * @return E the element that was removed
      */
-    E remove(E e) throws ElementDoesNotExistException
+    public E remove(E e) throws ElementDoesNotExistException {
+        int marker;
         if (!(this.contains(e))) {
-            throw ElementDoesNotExistException;
+            throw new ElementDoesNotExistException("ElementDoesNotExistException",e);
         }
+        for (int i = 0; i < itemCount; i++) {
+            if (items[i].equals(e)) {
+                marker = i;
+            }
+        }
+        items[marker] = items[itemCount - 1];
+        itemCount =- 1;
+        items = decrementItems();
+        return e;
+    }
+
+    private E[] decrementItems() {
+        E[] lessItems = (E[]) new Object [itemCount];
+        for (int i = 0; i < itemCount; i++) {
+            lessItems[i] = items[i];
+        }
+        return lessItems;
+    }
     /**
      * Returns true if the passed in element is contained in
      * the set.
@@ -35,7 +65,7 @@ class MySet<E> implements SimpleSet<E> {
      * @return whether the passed in element is contained
      * in the set
      */
-    boolean contains(E e) {
+    public boolean contains(E e) {
         for (E lookAt : items) {
             if (lookAt.equals(e)) {
                 return true;
@@ -53,23 +83,27 @@ class MySet<E> implements SimpleSet<E> {
      * @param e the elements to be removed from the set
      * @return E[] the elements that were removed from the set
      */
-    E[] removeAll(E[] e) throws ElementDoesNotExistException {
-
+    public E[] removeAll(E[] e) throws ElementDoesNotExistException {
+        for (int i = 0; i < e.length - 1; i ++) {
+            
+        }
     }
 
     /**
      * Removes all elements from the set.
      */
-    void clear() {
-
+    public void clear() {
+        E[] newitems = (E[]) new Object [0];
+        this.items = newitems;
+        itemCount = 0;
     }
 
     /**
      * Returns the number of elements contained in the set.
      * @return int the number of elements in the set
      */
-    int size() {
-
+    public int size() {
+        return itemCount;
     }
 
     /**
@@ -77,8 +111,8 @@ class MySet<E> implements SimpleSet<E> {
      * returns true if the set contains no elements.
      * @return boolean whether the set contains any elements
      */
-    boolean isEmpty() {
-
+    public boolean isEmpty() {
+        return (itemCount == 0);
     }
 
     /**
@@ -91,8 +125,11 @@ class MySet<E> implements SimpleSet<E> {
      * you want
      * @return E a random element from the set
      */
-    E getRandomElement() throws ElementDoesNotExistException {
-
+    public E getRandomElement() throws ElementDoesNotExistException {
+        if (itemCount == 0) {
+            throw new ElementDoesNotExistException("ElementDoesNotExistException");
+        }
+        return items[(int)(Math.random()*itemCount)];
     }
 
     /**
@@ -101,8 +138,8 @@ class MySet<E> implements SimpleSet<E> {
      * @return an array containing all the elements contained
      * within the set
      */
-    E[] toArray() {
-
+    public E[] toArray() {
+        return items;
     }
 
     /**
@@ -112,10 +149,12 @@ class MySet<E> implements SimpleSet<E> {
      * @return String the String representation of this object
      */
     @Override
-    String toString() {
-
+    public String toString() {
+        String arrayWords = "";
+        for (int i = 0; i < itemCount - 1; i ++) {
+            arrayWords = items[i] + ", ";
+        }
+        return arrayWords;
     }
-
-}
 
 }
