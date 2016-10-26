@@ -47,10 +47,12 @@ class FishingShack extends Building {
      * @return the fish removed from the FishingShack
      */
     public Fish getFish() {
-        // TODO
-        // your code here
+        try {
+            return fish.getRandomElement();
+        } catch (ElementDoesNotExistException e) {
+            return null;
+        }
     }
-
     /**
      * Puts 5 new Fish into the FishingShack if the FishingShack is
      * empty.
@@ -61,8 +63,16 @@ class FishingShack extends Building {
      * @return whether the FishingShack's Fish were replenished
      */
     public boolean replenishFish() {
-        // TODO
-        // your code here
+        boolean fun = false;
+        if (!(fish.isEmpty())) {
+            return false;
+        }
+        for (int i = 0; i < 5; i++) {
+            int p = (int) Math.random() * 5;
+            int q = (int) Math.random() * 5;
+            fun = fish.add(new Fish(p, q));
+        }
+        return true;
     }
 
     @Override

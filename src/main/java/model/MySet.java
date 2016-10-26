@@ -1,10 +1,10 @@
 package model;
 
 public class MySet<E> implements SimpleSet<E> {
-    private E[] items = (E[]) new Object [0];
+    private E[] items = (E[]) new Object[0];
     private int itemCount;
 
-    public MySet(){
+    public MySet() {
         itemCount = 0;
     }
 /**
@@ -15,10 +15,11 @@ public class MySet<E> implements SimpleSet<E> {
         itemCount += 1;
         items = incrementSize();
         items[itemCount - 1] = e;
+        return true;
     }
 
     private E[] incrementSize() {
-        E[] moreItems = (E[]) new Object [itemCount];
+        E[] moreItems = (E[]) new Object[itemCount];
         for (int i = 0; i < items.length; i++) {
             moreItems[i] = items[i];
         }
@@ -34,9 +35,9 @@ public class MySet<E> implements SimpleSet<E> {
      * @return E the element that was removed
      */
     public E remove(E e) throws ElementDoesNotExistException {
-        int marker;
+        int marker = 0;
         if (!(this.contains(e))) {
-            throw new ElementDoesNotExistException("ElementDoesNotExistException",e);
+            throw new ElementDoesNotExistException("screaming", e);
         }
         for (int i = 0; i < itemCount; i++) {
             if (items[i].equals(e)) {
@@ -44,13 +45,13 @@ public class MySet<E> implements SimpleSet<E> {
             }
         }
         items[marker] = items[itemCount - 1];
-        itemCount =- 1;
+        itemCount -= 1;
         items = decrementItems();
         return e;
     }
 
     private E[] decrementItems() {
-        E[] lessItems = (E[]) new Object [itemCount];
+        E[] lessItems = (E[]) new Object[itemCount];
         for (int i = 0; i < itemCount; i++) {
             lessItems[i] = items[i];
         }
@@ -84,16 +85,22 @@ public class MySet<E> implements SimpleSet<E> {
      * @return E[] the elements that were removed from the set
      */
     public E[] removeAll(E[] e) throws ElementDoesNotExistException {
-        for (int i = 0; i < e.length - 1; i ++) {
-            
+        for (int i = 0; i < e.length - 1; i++) {
+            if (contains(e[i])) {
+                throw new ElementDoesNotExistException("screaming", e[i]);
+            }
         }
+        for (int i = 0; i < e.length - 1; i++) {
+            remove(e[i]);
+        }
+        return e;
     }
 
     /**
      * Removes all elements from the set.
      */
     public void clear() {
-        E[] newitems = (E[]) new Object [0];
+        E[] newitems = (E[]) new Object[0];
         this.items = newitems;
         itemCount = 0;
     }
@@ -127,9 +134,9 @@ public class MySet<E> implements SimpleSet<E> {
      */
     public E getRandomElement() throws ElementDoesNotExistException {
         if (itemCount == 0) {
-            throw new ElementDoesNotExistException("ElementDoesNotExistException");
+            throw new ElementDoesNotExistException("screaming");
         }
-        return items[(int)(Math.random()*itemCount)];
+        return items[(int) (Math.random() * itemCount)];
     }
 
     /**
@@ -151,7 +158,7 @@ public class MySet<E> implements SimpleSet<E> {
     @Override
     public String toString() {
         String arrayWords = "";
-        for (int i = 0; i < itemCount - 1; i ++) {
+        for (int i = 0; i < itemCount - 1; i++) {
             arrayWords = items[i] + ", ";
         }
         return arrayWords;

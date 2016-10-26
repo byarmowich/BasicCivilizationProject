@@ -28,8 +28,9 @@ class Technology {
      * method in the Skill class)
      */
     public void gainATech() {
-        // TODO
-        // your code here
+        boolean fun = false;
+        techPoints++;
+        fun = skills.add(Skill.getRandomSkill());
     }
 
     /**
