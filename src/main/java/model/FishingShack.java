@@ -68,9 +68,12 @@ class FishingShack extends Building {
             return false;
         }
         for (int i = 0; i < 5; i++) {
-            int p = (int) Math.random() * 5;
-            int q = (int) Math.random() * 5;
-            fun = fish.add(new Fish(p, q));
+            fun = false;
+            while (!(fun)) {
+                int height = (int) Math.random() * 5;
+                int weight = (int) Math.random() * 5;
+                fun = fish.add(new Fish(height, weight));
+            }
         }
         return true;
     }

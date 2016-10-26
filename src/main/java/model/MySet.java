@@ -12,10 +12,13 @@ public class MySet<E> implements SimpleSet<E> {
      * @param e the element to be added to the set
      */
     public boolean add(E e) {
-        itemCount += 1;
-        items = incrementSize();
-        items[itemCount - 1] = e;
-        return true;
+        if (!(contains(e))) {
+            itemCount += 1;
+            items = incrementSize();
+            items[itemCount - 1] = e;
+            return true;
+        }
+        return false;
     }
 
     private E[] incrementSize() {
