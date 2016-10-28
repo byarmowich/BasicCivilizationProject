@@ -162,7 +162,7 @@ public class MySet<E> implements SimpleSet<E> {
     public String toString() {
         String arrayWords = "";
         for (int i = 0; i < itemCount - 1; i++) {
-            arrayWords = items[i] + ", ";
+            arrayWords += items[i] + ", ";
         }
         return arrayWords;
     }
