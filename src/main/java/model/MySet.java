@@ -1,6 +1,8 @@
 package model;
 
 import java.util.Random;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Represents a custom Set data structure.
@@ -8,7 +10,7 @@ import java.util.Random;
  * @author Ryan Voor
  * @version 1.0
  */
-class MySet<E> implements SimpleSet<E> {
+class MySet<E> implements SimpleSet<E>, Iterable<E> {
 
     private E[] data;
     private int numElements;
@@ -145,5 +147,34 @@ class MySet<E> implements SimpleSet<E> {
             newArray[i] = data[i];
         }
         data = newArray;
+    }
+
+    public Iterator<E> iterator() {
+        return new SetIterator();
+    }
+
+    /**
+    *Iterator to iterate throught the set
+    */
+    private class SetIterator implements Iterator<E> {
+        private int cursor = 0;
+
+        public boolean hasNext() {
+            return cursor <= numElements;
+        }
+
+        public E next() {
+            if (!hasNext()) { throw new NoSuchElementException(); }
+            E answer = data[cursor++];
+            return answer;
+        }
+
+        public void remove() {
+            try { 
+            	MySet.this.remove(data[cursor - 1]);
+            } catch (ElementDoesNotExistException v) {
+
+            }
+        }
     }
 }

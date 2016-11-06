@@ -1,5 +1,6 @@
 package model;
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 /**
  * A wrapper class for all of the Objects needed in the game. Also has methods
  * to facilitate interactions between these objects, and methods to interface
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class Model {
 
     private static Civilization playerCivilization;
-    private static ArrayList<Civilization> civs = new ArrayList<>();
+    private static MySet<Civilization> civs = new MySet<>();
     private static Map map;
     private static boolean playing;
     private static TerrainTile selected;
@@ -94,7 +95,7 @@ public class Model {
         //Add more civilizations for show
         civs.add(new Civilization("America"));
         civs.add(new Civilization("Aztec"));
-        civs.add(new Civilization("China"));
+        civs.add(new Civilization("Russia"));
         civs.add(new Civilization("India"));
         civs.add(new Civilization("Japan"));
         java.util.Random rand = new java.util.Random();
@@ -134,6 +135,7 @@ public class Model {
         case 1:
             //Military Prowess
             System.out.println("People with the Pointiest Sticks:");
+            //Collections.sort(civs, new StickComparator());
             break;
         case 2:
             //Citizen Happiness
@@ -153,6 +155,18 @@ public class Model {
             break;
         default:
             break;
+        }
+    }
+    static class StickComparator implements Comparator<Civilization> {
+        public int compare(Civilization a, Civilization b) {
+            if (a.getStrategy().getStrategyLevel() > b.getStrategy().getStrategyLevel()) {
+                return 1;
+            }else if (a.getStrategy().getStrategyLevel() == b.getStrategy().getStrategyLevel()) {
+                return 0;
+            }else if (a.getStrategy().getStrategyLevel() < b.getStrategy().getStrategyLevel()) {
+                return -1;
+            }
+            return -1;
         }
     }
 
