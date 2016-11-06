@@ -8,7 +8,7 @@ import java.util.Random;
  * @author Ryan Voor
  * @version 1.0
  */
-class MySet<E> implements SimpleSet<E>, Iterable<E> {
+class MySet<E> implements SimpleSet<E> {
 
     private E[] data;
     private int numElements;
@@ -21,30 +21,6 @@ class MySet<E> implements SimpleSet<E>, Iterable<E> {
     public MySet() {
         this.data = (E[]) new Object[startingSize];
         this.numElements = 0;
-    }
-
-    iterator() {
-        return Iterator<E> iterate = new MyIterator<E>;
-    }
-
-    private class MyIterator<E> extends Iterator<E> {
-        int pointer;
-        myIterator() {
-            pointer = 0;
-        }
-
-        E next() {
-            pointer++;
-            return data[pointer - 1];
-        }
-
-        boolean hasNext() {
-
-        }
-
-        boolean remove() {
-
-        }
     }
 
     @Override
