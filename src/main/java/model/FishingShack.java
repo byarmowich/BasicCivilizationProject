@@ -26,7 +26,7 @@ class FishingShack extends Building {
         replenishFish();
         int foodGeneration = 0;
         int goldGeneration = 0;
-        for (Fish f : fish.toArray()) {
+        for (Fish f : fish) {
             foodGeneration += (int) (f.getHealth() / 2);
             goldGeneration += f.getHealth() - foodGeneration;
         }
@@ -48,11 +48,13 @@ class FishingShack extends Building {
      */
     public Fish getFish() {
         try {
-            return fish.getRandomElement();
+            Fish toBeReturned = fish.getRandomElement();
+            return fish.remove(toBeReturned);
         } catch (ElementDoesNotExistException e) {
             return null;
         }
     }
+
     /**
      * Puts 5 new Fish into the FishingShack if the FishingShack is
      * empty.
@@ -63,17 +65,11 @@ class FishingShack extends Building {
      * @return whether the FishingShack's Fish were replenished
      */
     public boolean replenishFish() {
-        boolean fun = false;
-        if (!(fish.isEmpty())) {
+        if (!fish.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < 5; i++) {
-            fun = false;
-            while (!(fun)) {
-                int height = (int) Math.random() * 5;
-                int weight = (int) Math.random() * 5;
-                fun = fish.add(new Fish(height, weight));
-            }
+        while (fish.size() < 5) {
+            fish.add(new Fish(rand.nextInt(5), rand.nextInt(5)));
         }
         return true;
     }
