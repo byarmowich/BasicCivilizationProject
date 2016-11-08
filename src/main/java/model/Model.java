@@ -1,6 +1,8 @@
 package model;
 import java.util.Comparator;
-import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 /**
  * A wrapper class for all of the Objects needed in the game. Also has methods
  * to facilitate interactions between these objects, and methods to interface
@@ -109,12 +111,12 @@ public class Model {
             }
             count = rand.nextInt(10) + 1;
             i = 0;
-            while( i++ < count) {
+            while (i++ < count) {
                 c.getTechnology().philosophize();
             }
             count = rand.nextInt(5) + 1;
             i = 0;
-            while(i++ < count) {
+            while (i++ < count) {
                 c.incrementNumSettlements();
             }
         }
@@ -131,27 +133,59 @@ public class Model {
 
     public static void standings(int choice) {
         int i = 1;
+        List<Civilization> civils = new ArrayList<>();
+        for (Civilization civilsssss: civs) {
+            civils.add(civilsssss);
+        }
         switch (choice) {
         case 1:
             //Military Prowess
             System.out.println("People with the Pointiest Sticks:");
-            //Collections.sort(civs, new StickComparator());
+            Collections.sort(civils, new StickComparator());
+            for (Civilization st: civils) {
+                System.out.println(st + " "
+                    + st.getStrategy().getStrategyLevel()
+                    + " Military Prowess");
+            }
             break;
         case 2:
             //Citizen Happiness
             System.out.println("People with the most faithful Citizens:");
+            Collections.sort(civils, new HappyComparator());
+            for (Civilization st: civils) {
+                System.out.println(st + " " + st.getHappiness()
+                    + " Happiness");
+            }
             break;
         case 3:
             //Tech Points
             System.out.println("People with the best Science:");
+            Collections.sort(civils, new TechComparator());
+            for (Civilization st: civils) {
+                System.out.println(st + " "
+                    + st.getTechnology().getTechPoints()
+                    + " Technologies");
+            }
             break;
         case 4:
             //Amount of resources
             System.out.println("People with the finest Resources:");
+            Collections.sort(civils, new ResourceComparator());
+            for (Civilization st: civils) {
+                System.out.println(st + " " + st.getResources()
+                    + " Resources");
+            }
             break;
         case 5:
             //Overall Prowess
             System.out.println("People with the Fanciest Crowns");
+            Collections.sort(civils, new CrownComparator());
+            for (Civilization st: civils) {
+                System.out.println(st + " " + st.getNumSettlements()
+                    + " Settlements, "
+                    + st.getStrategy().getStrategyLevel()
+                    + " Military Prowess");
+            }
             break;
         default:
             break;
@@ -159,16 +193,41 @@ public class Model {
     }
     static class StickComparator implements Comparator<Civilization> {
         public int compare(Civilization a, Civilization b) {
-            if (a.getStrategy().getStrategyLevel() > b.getStrategy().getStrategyLevel()) {
-                return 1;
-            }else if (a.getStrategy().getStrategyLevel() == b.getStrategy().getStrategyLevel()) {
-                return 0;
-            }else if (a.getStrategy().getStrategyLevel() < b.getStrategy().getStrategyLevel()) {
-                return -1;
-            }
-            return -1;
+            return (b.getStrategy().getStrategyLevel()
+                - a.getStrategy().getStrategyLevel());
         }
     }
+
+    static class HappyComparator implements Comparator<Civilization> {
+        public int compare(Civilization a, Civilization b) {
+            return (b.getHappiness() - a.getHappiness());
+        }
+    }
+
+    static class TechComparator implements Comparator<Civilization> {
+        public int compare(Civilization a, Civilization b) {
+            return (b.getTechnology().getTechPoints()
+                - a.getTechnology().getTechPoints());
+        }
+    }
+
+    static class ResourceComparator implements Comparator<Civilization> {
+        public int compare(Civilization a, Civilization b) {
+            return (b.getResources() - a.getResources());
+        }
+    }
+
+    static class CrownComparator implements Comparator<Civilization> {
+        public int compare(Civilization a, Civilization b) {
+            int test = b.getNumSettlements() - a.getNumSettlements();
+            if (test == 0) {
+                test = (b.getStrategy().getStrategyLevel()
+                    - a.getStrategy().getStrategyLevel());
+            }
+            return test;
+        }
+    }
+
 
     /**
      * Puts a Settlement onto the map. This is slightly convenient because it

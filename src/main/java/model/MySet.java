@@ -160,21 +160,15 @@ class MySet<E> implements SimpleSet<E>, Iterable<E> {
         private int cursor = 0;
 
         public boolean hasNext() {
-            return cursor <= numElements;
+            return cursor < numElements;
         }
 
         public E next() {
-            if (!hasNext()) { throw new NoSuchElementException(); }
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
             E answer = data[cursor++];
             return answer;
-        }
-
-        public void remove() {
-            try { 
-            	MySet.this.remove(data[cursor - 1]);
-            } catch (ElementDoesNotExistException v) {
-
-            }
         }
     }
 }
